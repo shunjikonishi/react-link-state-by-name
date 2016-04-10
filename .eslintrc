@@ -1,0 +1,35 @@
+{
+  "extends": "airbnb",
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "plugins": [
+    "react"
+  ],
+  "envs": {
+    "node": true
+  },
+  "rules": {
+    "no-console": 0,
+    "quotes": 0,
+    "space-before-function-paren": 0,
+    "no-multi-spaces": 0,
+    "no-use-before-define": 0,
+    "padded-blocks": 0,
+    "no-useless-escape": 2,
+    "new-cap": [2, {
+      properties: false,
+    }],
+    "strict": 0,
+    "no-var": 0,
+    "func-names": 0,
+    "prefer-arrow-callback": 0,
+    "max-len": [2, 150, 2],
+    "react/prefer-es6-class": [2, "never"],
+    "react/prefer-stateless-function": 0,
+  }
+}

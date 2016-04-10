@@ -16,7 +16,7 @@ var LinkStateByName = {
 
     }
     this.setState(newState);
-  }
+  },
 };
 
 module.exports = LinkStateByName;
