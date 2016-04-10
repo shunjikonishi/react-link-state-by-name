@@ -1,5 +1,4 @@
 "use strict";
-var merge = require("lodash.merge");
 
 var LinkStateByName = {
   linkStateByName(e) {
@@ -8,12 +7,20 @@ var LinkStateByName = {
     if (names.length === 1) {
       newState[names[0]] = e.target.value;
     } else {
-      newState = merge(this.state, names.reduceRight(function(value, name) {
-        var ret = {};
-        ret[name] = value;
+      var name1 = names[0];
+      newState[name1] = Object.assign({}, this.state[name1]);
+      names.reduce(function(value, name, index) {
+        if (index === names.length - 1) {
+          value[name] = e.target.value;
+          return value;
+        }
+        var ret = value[name];
+        if (!ret) {
+          ret = {};
+          value[name] = ret;
+        }
         return ret;
-      }, e.target.value));
-
+      }, newState);
     }
     this.setState(newState);
   },

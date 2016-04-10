@@ -1,6 +1,6 @@
 {
   "name": "react-link-state-by-name",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A substitute for LinkStateMixin",
   "main": "index.js",
   "scripts": {
@@ -21,7 +21,6 @@
   },
   "homepage": "https://github.com/shunjikonishi/react-link-state-by-name#readme",
   "dependencies": {
-    "lodash.merge": "^4.3.4"
   },
   "devDependencies": {
     "babel-preset-airbnb": "^1.1.1",
