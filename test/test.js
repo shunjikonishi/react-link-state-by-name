@@ -17,6 +17,7 @@ const MyComponent = React.createClass({
         e: "eee",
       },
       var1: "",
+      bool1: true
     };
   },
 
@@ -27,6 +28,7 @@ const MyComponent = React.createClass({
         <input id="abc"  name="a.b.c" value={this.state.a.b.c} onChange={this.linkStateByName} />
         <input id="abd"  name="a.b.d" value={this.state.a.b.d} onChange={this.linkStateByName} />
         <input id="ae"   name="a.e"   value={this.state.a.e}   onChange={this.linkStateByName} />
+        <input id="bool1" name="bool1"   checked={this.state.bool1}   onChange={this.linkStateByName} />
       </div>
     );
   },
@@ -113,5 +115,31 @@ describe("react-link-state-by-name", function() {
     assert.equal(abc.get(0).value, "12345");
     assert.equal(abd.get(0).value, "67890");
     assert.equal(ae.get(0).value, "abcde");
+  });
+
+  it("should work with checkbox", function() {
+    const wrapper = mount(<MyComponent />);
+    const bool1 = wrapper.find("#bool1");
+
+    assert.equal(wrapper.state().bool1, true);
+    assert.equal(bool1.get(0).checked, true);
+    bool1.simulate("change", {
+      target: {
+        name: "bool1",
+        type: "checkbox",
+        checked: false
+      },
+    });
+    assert.equal(wrapper.state().bool1, false);
+    assert.equal(bool1.get(0).checked, false);
+    bool1.simulate("change", {
+      target: {
+        name: "bool1",
+        type: "checkbox",
+        checked: true
+      },
+    });
+    assert.equal(wrapper.state().bool1, true);
+    assert.equal(bool1.get(0).checked, true);
   });
 });
