@@ -1,7 +1,7 @@
 "use strict";
 
 var LinkStateByName = {
-  linkStateByName(e) {
+  linkStateByName: function(e) {
     var names = e.target.name.split(".");
     var newState = {};
     var targetValue = e.target.value;
